@@ -72,16 +72,16 @@ REM   "%cd%\setup_espeak-1.48.04.exe" /SILENT
   echo START http://internode.dl.sourceforge.net/project/espeak/espeak/espeak-1.48/setup_espeak-1.48.04.exe
 )
 
-REM DEL "%cd%\ffmpeg-4.2-win32-static.zip"
-IF NOT EXIST "%cd%\ffmpeg-4.2-win32-static.zip" (
+REM DEL "%cd%\ffmpeg-4.2-win64-static.zip"
+IF NOT EXIST "%cd%\ffmpeg-4.2-win64-static.zip" (
   echo Downloading FFmpeg...
-  REM %CURL% https://archive.org/download/ffmpeg-4.2-win32-static/ffmpeg-4.2-win32-static.zip -o %cd%\ffmpeg-3.2-win32-static.zip
-  %CURL% https://ffmpeg.zeranoe.com/builds/win32/static/ffmpeg-4.2-win32-static.zip -o %cd%\ffmpeg-4.2-win32-static.zip
+  REM %CURL% https://archive.org/download/ffmpeg-4.2-win64-static/ffmpeg-4.2-win64-static.zip -o %cd%\ffmpeg-3.2-win32-static.zip
+  %CURL% https://ffmpeg.zeranoe.com/builds/win64/static/ffmpeg-4.2-win64-static.zip -o %cd%\ffmpeg-4.2-win64-static.zip
 )
 IF NOT EXIST "%cd%\setup_ffmpeg-4.2.exe" (
-  "%PF32%\7-Zip\7z.exe" x ffmpeg-4.2-win32-static.zip -aoa
+  "%PF32%\7-Zip\7z.exe" x ffmpeg-4.2-win64-static.zip -aoa
   rmdir /q/s ffmpeg-4.2
-  move /y ffmpeg-4.2-win32-static ffmpeg-4.2
+  move /y ffmpeg-4.2-win64-static ffmpeg-4.2
   "%INNOPATH%\ISCC.exe" FFmpeg_Installer.iss
 )
 IF EXIST "%cd%\setup_ffmpeg-4.2.exe" (
