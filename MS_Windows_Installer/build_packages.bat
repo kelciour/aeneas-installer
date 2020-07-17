@@ -18,19 +18,15 @@ IF EXIST "C:\Program Files (x86)" GOTO WIN64PATH
   (call )
 :ENDIF
 
-IF EXIST "%USERPROFILE%\AppData\Local\Programs\Inno Setup 6" (
- set INNOPATH="%USERPROFILE%\AppData\Local\Programs\Inno Setup 6"
-) ELSE (
-  IF EXIST "%PF32%\Inno Setup 6" GOTO INNO6PATH
-  :INNO5PATH
-    set INNOPATH=%PF32%\Inno Setup 5
-    (call )
-    GOTO ENDIF
-  :INNO6PATH
-    set INNOPATH=%PF32%\Inno Setup 6
-    (call )
-  :ENDIF
-)
+IF EXIST "%USERPROFILE%\AppData\Local\Programs\Inno Setup 6" GOTO INNO6PATH
+:INNO5PATH
+  set INNOPATH=%PF32%\Inno Setup 5
+  (call )
+  GOTO ENDIF
+:INNO6PATH
+  set INNOPATH=%USERPROFILE%\AppData\Local\Programs\Inno Setup 6
+  (call )
+:ENDIF
 
 IF NOT EXIST "%cd%\python-3.7.4.exe" (
   echo Downloading Python 3.7.4...
