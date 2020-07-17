@@ -43,8 +43,8 @@ WelcomeLabel2=This will install aeneas 1.7.3 on your computer.%n%naeneas is a Py
 Name: "english"; MessagesFile: "compiler:Default.isl"
 
 [Registry]
-Root: HKLM; Subkey: "SYSTEM\CurrentControlSet\Control\Session Manager\Environment"; ValueType: expandsz; ValueName: "Path"; ValueData: "C:\Python37-32\Scripts;{olddata}"; Components: python; Check: NeedsAddPath('C:\Python37-32\Scripts')
-Root: HKLM; Subkey: "SYSTEM\CurrentControlSet\Control\Session Manager\Environment"; ValueType: expandsz; ValueName: "Path"; ValueData: "C:\Python37-32\;{olddata}"; Components: python; Check: NeedsAddPath('C:\Python37-32\')
+Root: HKLM; Subkey: "SYSTEM\CurrentControlSet\Control\Session Manager\Environment"; ValueType: expandsz; ValueName: "Path"; ValueData: "C:\Python37-64\Scripts;{olddata}"; Components: python; Check: NeedsAddPath('C:\Python37-64\Scripts')
+Root: HKLM; Subkey: "SYSTEM\CurrentControlSet\Control\Session Manager\Environment"; ValueType: expandsz; ValueName: "Path"; ValueData: "C:\Python37-64\;{olddata}"; Components: python; Check: NeedsAddPath('C:\Python37-64\')
 Root: HKLM; Subkey: "SYSTEM\CurrentControlSet\Control\Session Manager\Environment"; ValueType: expandsz; ValueName: "Path"; ValueData: "{olddata};{pf32}\FFmpeg\bin"; Components: ffmpeg; Check: NeedsAddPath(ExpandConstant('{pf32}\FFmpeg\bin'))
 Root: HKLM; Subkey: "SYSTEM\CurrentControlSet\Control\Session Manager\Environment"; ValueType: expandsz; ValueName: "Path"; ValueData: "{olddata};{pf32}\eSpeak\command_line"; Components: espeak; Check: NeedsAddPath(ExpandConstant('{pf32}\eSpeak\command_line'))
 
@@ -78,7 +78,7 @@ Name: "{group}\{cm:UninstallProgram,{#MyAppName}}"; Filename: "{uninstallexe}"
 [Run]
 Filename: "{app}\[FFMPEG_FILE]"; Parameters: "/SILENT"; Description: "Install FFmpeg [FFMPEG_VER]"; Components: ffmpeg; Flags: shellexec waituntilterminated
 Filename: "{app}\setup_espeak-1.48.04.exe"; Parameters: "/SILENT"; Description: "Install eSpeak 1.48.04"; Components: espeak; Flags: shellexec waituntilterminated
-Filename: "{app}\[PYTHON_FILE]"; Parameters: "/PASSIVE InstallAllUsers=1 TargetDir=C:\Python37-32 PrependPath=1"; Description: "Install Python [PYTHON_VER]"; Components: python; Flags: shellexec waituntilterminated
+Filename: "{app}\[PYTHON_FILE]"; Parameters: "/PASSIVE InstallAllUsers=1 TargetDir=C:\Python37-64 PrependPath=1"; Description: "Install Python [PYTHON_VER]"; Components: python; Flags: shellexec waituntilterminated
 Filename: "{app}\install_packages.bat"; Description: "Install Aeneas 1.7.3 and dependencies"; Components: aeneas; Flags: shellexec waituntilterminated
 Filename: "{app}\aeneas_check_setup.bat"; Description: "Check Aeneas Setup"; Components: aeneas; Flags: shellexec waituntilterminated
 
@@ -88,7 +88,7 @@ Filename: "{pf32}\eSpeak\unins000.exe"; Parameters: "/SILENT"; Components: espea
 Filename: "{sys}\MSIEXEC.EXE"; Parameters: "/PASSIVE /X {app}\[PYTHON_FILE]"; Components: python; Flags: shellexec waituntilterminated
 
 [UninstallDelete]
-Type: filesandordirs; Name: "C:\Python37-32"; Components: python
+Type: filesandordirs; Name: "C:\Python37-64"; Components: python
 Type: filesandordirs; Name: "{sys}\espeak.dll"; Components: espeak
 Type: filesandordirs; Name: "{app}";
 

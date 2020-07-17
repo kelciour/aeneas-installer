@@ -34,11 +34,11 @@ IF EXIST "%cd%\innosetup-6.0.2.exe" (
 
 IF NOT EXIST "%cd%\python-3.7.4.exe" (
   echo Downloading Python 3.7.4...
-  %CURL% "https://www.python.org/ftp/python/3.7.4/python-3.7.4.exe" -o "%cd%\python-3.7.4.exe"
+  %CURL% "https://www.python.org/ftp/python/3.7.4/python-3.7.4-amd64.exe" -o "%cd%\python-3.7.4.exe"
 )
 IF EXIST "%cd%\python-3.7.4.exe" (
   echo Installing Python 3.7.4...
-  python-3.7.4.exe /passive InstallAllUsers=1 TargetDir=C:\Python37-32 PrependPath=1
+  python-3.7.4.exe /passive InstallAllUsers=1 TargetDir=C:\Python37-64 PrependPath=1
 ) ELSE (
   echo Could not find Python 3.7.4...
   START https://www.python.org/downloads/release/python-374/

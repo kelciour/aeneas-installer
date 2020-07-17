@@ -30,20 +30,20 @@ IF EXIST "%PF32%\Inno Setup 6" GOTO INNO6PATH
 
 IF NOT EXIST "%cd%\python-3.7.4.exe" (
   echo Downloading Python 3.7.4...
-  %CURL% "https://www.python.org/ftp/python/3.7.4/python-3.7.4.exe" -o "%cd%\python-3.7.4.exe"
+  %CURL% "https://www.python.org/ftp/python/3.7.4/python-3.7.4-amd64.exe" -o "%cd%\python-3.7.4.exe"
 )
-IF EXIST "C:\Python37-32\python.exe" (
+IF EXIST "C:\Python37-64\python.exe" (
   IF NOT EXIST "%cd%\python-3.7.4.exe" (
     echo Installing Python 3.7.4...
-    python-3.7.4.exe /quiet InstallAllUsers=1 TargetDir=C:\Python37-32 PrependPath=1
+    python-3.7.4.exe /quiet InstallAllUsers=1 TargetDir=C:\Python37-64 PrependPath=1
   )
 ) ELSE (
   echo Could not find Python 3.7.4...
   START https://www.python.org/downloads/release/python-374/
 )
 
-C:\Python37-32\python -m ensurepip
-set pip=C:\Python37-32\Scripts\pip
+C:\Python37-64\python -m ensurepip
+set pip=C:\Python37-64\Scripts\pip
 
 %pip% install -U pip setuptools wheel
 
@@ -53,7 +53,7 @@ set pip=C:\Python37-32\Scripts\pip
 
 2>nul curl.exe --version
 if %ERRORLEVEL%==0 goto exeCurl
-  REM set CURL=C:\Python37-32\python -m wget
+  REM set CURL=C:\Python37-64\python -m wget
   set CURL=call curl.bat -L
   goto endIf
 :exeCurl
@@ -107,9 +107,9 @@ REM C:\Windows\System32\ping 127.0.0.1 -n 10 -w 1000 > NUL
 
 echo.
 set PYTHONIOENCODING=UTF-8
-C:\Python37-32\python -m aeneas.diagnostics
-C:\Python37-32\python -m aeneas.tools.execute_task --version
-C:\Python37-32\python -m aeneas.tools.synthesize_text list "This is a test|with two lines" eng -v C:\Windows\Temp\test.wav
+C:\Python37-64\python -m aeneas.diagnostics
+C:\Python37-64\python -m aeneas.tools.execute_task --version
+C:\Python37-64\python -m aeneas.tools.synthesize_text list "This is a test|with two lines" eng -v C:\Windows\Temp\test.wav
 echo.
 
 REM C:\Windows\System32\ping 127.0.0.1 -n 5 -w 1000 > NUL

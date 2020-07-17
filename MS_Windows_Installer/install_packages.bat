@@ -35,14 +35,14 @@ IF EXIST "C:\Program Files (x86)" GOTO WIN64PATH
 
 echo Copying espeak.dll to C:\Windows\System32\
 copy /b/v/y "%PF32%\eSpeak\espeak_sapi.dll" C:\Windows\System32\espeak.dll
-echo Copying espeak.lib to C:\Python37-32\libs\
-copy /b/v/y espeak.lib C:\Python37-32\libs\
+echo Copying espeak.lib to C:\Python37-64\libs\
+copy /b/v/y espeak.lib C:\Python37-64\libs\
 
-C:\Python37-32\python -m ensurepip
-C:\Python37-32\python -m pip install -U pip-19.2.3-py2.py3-none-any.whl
-C:\Python37-32\python -m pip install -U numpy-1.17.1-cp37-cp37m-win32.whl
-C:\Python37-32\python -m pip install -U lxml-4.4.1-cp37-cp37m-win32.whl
-C:\Python37-32\python -m pip install -U soupsieve-1.9.3-py2.py3-none-any.whl
-C:\Python37-32\python -m pip install -U beautifulsoup4-4.8.0-py3-none-any.whl
-C:\Python37-32\python -m pip install -U aeneas-1.7.3.0-cp37-cp37m-win32.whl
+C:\Python37-64\python -m ensurepip
+C:\Python37-64\python -m pip install -U pip-19.2.3-py2.py3-none-any.whl
+C:\Python37-64\python -m pip install -U numpy-1.17.1-cp37-cp37m-win32.whl
+C:\Python37-64\python -m pip install -U lxml-4.4.1-cp37-cp37m-win32.whl
+C:\Python37-64\python -m pip install -U soupsieve-1.9.3-py2.py3-none-any.whl
+C:\Python37-64\python -m pip install -U beautifulsoup4-4.8.0-py3-none-any.whl
+C:\Python37-64\python -m pip install -U aeneas-1.7.3.0-cp37-cp37m-win32.whl
 

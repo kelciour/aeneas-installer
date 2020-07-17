@@ -44,7 +44,7 @@ IF EXIST "C:\Program Files\Git\usr\bin" GOTO SETGITPATH
   (call )
 :ENDIF
 
-set pip=C:\Python37-32\Scripts\pip
+set pip=C:\Python37-64\Scripts\pip
 
 FOR /F "tokens=* USEBACKQ" %%F IN (`ffmpeg -version ^| %grep% version -m 1 ^| %cut% -d' ' -f3`) DO (SET ffmpeg_ver=%%F)
 FOR /F "tokens=* USEBACKQ" %%F IN (`python --version ^| %cut% -d' ' -f2`) DO (SET python_ver=%%F)

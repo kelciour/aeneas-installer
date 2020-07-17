@@ -35,14 +35,14 @@ IF EXIST "C:\Program Files (x86)" GOTO WIN64PATH
 
 echo Copying espeak.dll to C:\Windows\System32\
 copy /b/v/y "%PF32%\eSpeak\espeak_sapi.dll" C:\Windows\System32\espeak.dll
-echo Copying espeak.lib to C:\Python37-32\libs\
-copy /b/v/y espeak.lib C:\Python37-32\libs\
+echo Copying espeak.lib to C:\Python37-64\libs\
+copy /b/v/y espeak.lib C:\Python37-64\libs\
 
-C:\Python37-32\python -m ensurepip
-C:\Python37-32\python -m pip install -U [PIP_FILE]
-C:\Python37-32\python -m pip install -U [NUMPY_FILE]
-C:\Python37-32\python -m pip install -U [LXML_FILE]
-C:\Python37-32\python -m pip install -U [SOUPSIEVE_FILE]
-C:\Python37-32\python -m pip install -U [BS4_FILE]
-C:\Python37-32\python -m pip install -U [AENEAS_FILE]
+C:\Python37-64\python -m ensurepip
+C:\Python37-64\python -m pip install -U [PIP_FILE]
+C:\Python37-64\python -m pip install -U [NUMPY_FILE]
+C:\Python37-64\python -m pip install -U [LXML_FILE]
+C:\Python37-64\python -m pip install -U [SOUPSIEVE_FILE]
+C:\Python37-64\python -m pip install -U [BS4_FILE]
+C:\Python37-64\python -m pip install -U [AENEAS_FILE]
 
