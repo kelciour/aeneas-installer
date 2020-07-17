@@ -2,11 +2,11 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "aeneas tools"
-#define MyAppVersion "1.7.3.0"
+#define MyAppVersion "1.7.0.0"
 #define MyAppPublisher "Daniel Bair"
 #define MyAppURL "http://www.danielbair.com/"
 #define MyAppInstallDir "C:\aeneas-install"
-#define MyAppFileName "aeneas-windows-setup-1.7.3.0_2"
+#define MyAppFileName "aeneas-windows-setup-1.7.0.0_2"
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application.
@@ -49,21 +49,21 @@ Root: HKLM; Subkey: "SYSTEM\CurrentControlSet\Control\Session Manager\Environmen
 Root: HKLM; Subkey: "SYSTEM\CurrentControlSet\Control\Session Manager\Environment"; ValueType: expandsz; ValueName: "Path"; ValueData: "{olddata};{pf32}\eSpeak\command_line"; Components: espeak; Check: NeedsAddPath(ExpandConstant('{pf32}\eSpeak\command_line'))
 
 [Components]
-Name: "ffmpeg"; Description: "Install FFmpeg 4.2"; ExtraDiskSpaceRequired: 111181824; Types: full compact custom; Flags: fixed
+Name: "ffmpeg"; Description: "Install FFmpeg 4.2.2"; ExtraDiskSpaceRequired: 111181824; Types: full compact custom; Flags: fixed
 Name: "espeak"; Description: "Install eSpeak 1.48.04"; ExtraDiskSpaceRequired: 11223040; Types: full compact custom; Flags: fixed
 Name: "python"; Description: "Install Python 3.7.4"; ExtraDiskSpaceRequired: 106450944; Types: full compact custom; Flags: fixed
-Name: "bs4"; Description: "Install Python Module BeautifulSoup4 4.8.0"; ExtraDiskSpaceRequired: 3400000; Types: full compact custom; Flags: fixed
-Name: "lxml"; Description: "Install Python Module lxml 4.4.1"; ExtraDiskSpaceRequired: 0; Types: full compact custom; Flags: fixed
-Name: "numpy"; Description: "Install Python Module NumPy 1.17.1"; ExtraDiskSpaceRequired: 0; Types: full compact custom; Flags: fixed
-Name: "aeneas"; Description: "Install Python Module aeneas 1.7.3.0"; ExtraDiskSpaceRequired: 0; Types: full compact custom; Flags: fixed
+Name: "bs4"; Description: "Install Python Module BeautifulSoup4 4.9.1"; ExtraDiskSpaceRequired: 3400000; Types: full compact custom; Flags: fixed
+Name: "lxml"; Description: "Install Python Module lxml 4.5.2"; ExtraDiskSpaceRequired: 0; Types: full compact custom; Flags: fixed
+Name: "numpy"; Description: "Install Python Module NumPy 1.19.0"; ExtraDiskSpaceRequired: 0; Types: full compact custom; Flags: fixed
+Name: "aeneas"; Description: "Install Python Module aeneas 1.7.0.0"; ExtraDiskSpaceRequired: 0; Types: full compact custom; Flags: fixed
 
 [Files]
-Source: "aeneas-1.7.3.0-cp37-cp37m-win32.whl"; DestDir: "{app}"; Components: aeneas; Flags: ignoreversion
-Source: "numpy-1.17.1-cp37-cp37m-win32.whl"; DestDir: "{app}"; Components: numpy; Flags: ignoreversion
-Source: "lxml-4.4.1-cp37-cp37m-win32.whl"; DestDir: "{app}"; Components: lxml; Flags: ignoreversion
-Source: "beautifulsoup4-4.8.0-py3-none-any.whl"; DestDir: "{app}"; Components: bs4; Flags: ignoreversion
-Source: "soupsieve-1.9.3-py2.py3-none-any.whl"; DestDir: "{app}"; Components: bs4; Flags: ignoreversion
-Source: "pip-19.2.3-py2.py3-none-any.whl"; DestDir: "{app}"; Components: python; Flags: ignoreversion
+Source: "aeneas-1.7.0.0-cp38-cp38-win_amd64.whl"; DestDir: "{app}"; Components: aeneas; Flags: ignoreversion
+Source: "numpy-1.19.0-cp38-cp38-win_amd64.whl"; DestDir: "{app}"; Components: numpy; Flags: ignoreversion
+Source: "lxml-4.5.2-cp38-cp38-win_amd64.whl"; DestDir: "{app}"; Components: lxml; Flags: ignoreversion
+Source: "beautifulsoup4-4.9.1-py3-none-any.whl"; DestDir: "{app}"; Components: bs4; Flags: ignoreversion
+Source: "soupsieve-2.0.1-py3-none-any.whl"; DestDir: "{app}"; Components: bs4; Flags: ignoreversion
+Source: "pip-20.1.1-py2.py3-none-any.whl"; DestDir: "{app}"; Components: python; Flags: ignoreversion
 Source: "python-3.7.4.exe"; DestDir: "{app}"; Components: python; Flags: ignoreversion
 Source: "setup_ffmpeg-4.2.exe"; DestDir: "{app}"; Components: ffmpeg; Flags: ignoreversion
 Source: "setup_espeak-1.48.04.exe"; DestDir: "{app}"; Components: espeak; Flags: ignoreversion
@@ -76,7 +76,7 @@ Source: "install_packages.bat"; DestDir: "{app}"; Components: aeneas; Flags: ign
 Name: "{group}\{cm:UninstallProgram,{#MyAppName}}"; Filename: "{uninstallexe}"
 
 [Run]
-Filename: "{app}\setup_ffmpeg-4.2.exe"; Parameters: "/SILENT"; Description: "Install FFmpeg 4.2"; Components: ffmpeg; Flags: shellexec waituntilterminated
+Filename: "{app}\setup_ffmpeg-4.2.exe"; Parameters: "/SILENT"; Description: "Install FFmpeg 4.2.2"; Components: ffmpeg; Flags: shellexec waituntilterminated
 Filename: "{app}\setup_espeak-1.48.04.exe"; Parameters: "/SILENT"; Description: "Install eSpeak 1.48.04"; Components: espeak; Flags: shellexec waituntilterminated
 Filename: "{app}\python-3.7.4.exe"; Parameters: "/PASSIVE InstallAllUsers=1 TargetDir=C:\Python37-64 PrependPath=1"; Description: "Install Python 3.7.4"; Components: python; Flags: shellexec waituntilterminated
 Filename: "{app}\install_packages.bat"; Description: "Install Aeneas 1.7.3 and dependencies"; Components: aeneas; Flags: shellexec waituntilterminated

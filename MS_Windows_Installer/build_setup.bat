@@ -44,17 +44,17 @@ IF EXIST "%cd%\python-3.7.4.exe" (
   START https://www.python.org/downloads/release/python-374/
 )
 
-IF NOT EXIST "%cd%\VCForPython27.msi" (
-echo Downloading Visual C++ For Python27...
-  %CURL% "https://download.microsoft.com/download/7/9/6/796EF2E4-801B-4FC4-AB28-B59FBF6D907B/VCForPython27.msi" -o "%cd%\VCForPython27.msi"
-)
-IF EXIST "%cd%\VCForPython27.msi" (
-  echo Installing Visual C++ For Python27...
-  VCForPython27.msi /PASSIVE
-) ELSE (
-  echo Could not find Visual C++ For Python27...
-  START http://www.microsoft.com/en-us/download/details.aspx?id=44266
-)
+rem IF NOT EXIST "%cd%\VCForPython27.msi" (
+rem echo Downloading Visual C++ For Python27...
+rem   %CURL% "https://download.microsoft.com/download/7/9/6/796EF2E4-801B-4FC4-AB28-B59FBF6D907B/VCForPython27.msi" -o "%cd%\VCForPython27.msi"
+rem )
+rem IF EXIST "%cd%\VCForPython27.msi" (
+rem   echo Installing Visual C++ For Python27...
+rem   VCForPython27.msi /PASSIVE
+rem ) ELSE (
+rem   echo Could not find Visual C++ For Python27...
+rem   START http://www.microsoft.com/en-us/download/details.aspx?id=44266
+rem )
 
 IF NOT EXIST "%cd%\dotNetFx35setup.exe" (
 echo Downloading Microsoft .NET Framework 3.5...
@@ -68,16 +68,16 @@ IF EXIST "%cd%\dotNetFx35setup.exe" (
   START http://www.microsoft.com/en-us/download/details.aspx?id=21
 )
 
-IF NOT EXIST "%cd%\Git-2.23.0-32-bit.exe" (
-echo Downloading Git for Windows 2.23.0...
-  %CURL% "https://github.com/git-for-windows/git/releases/download/v2.23.0.windows.1/Git-2.23.0-32-bit.exe" -o "%cd%\Git-2.23.0-32-bit.exe"
-)
-IF EXIST "%cd%\Git-2.23.0-32-bit.exe" (
-  echo Installing Git for Windows 2.23.0...
-  Git-2.23.0-32-bit.exe /SILENT
-) ELSE (
-  echo Could not find Git for Windows 2.23.0...
-  START https://git-scm.com/download/win
-)
+rem IF NOT EXIST "%cd%\Git-2.23.0-32-bit.exe" (
+rem echo Downloading Git for Windows 2.23.0...
+rem   %CURL% "https://github.com/git-for-windows/git/releases/download/v2.23.0.windows.1/Git-2.23.0-32-bit.exe" -o "%cd%\Git-2.23.0-32-bit.exe"
+rem )
+rem IF EXIST "%cd%\Git-2.23.0-32-bit.exe" (
+rem   echo Installing Git for Windows 2.23.0...
+rem   Git-2.23.0-32-bit.exe /SILENT
+rem ) ELSE (
+rem   echo Could not find Git for Windows 2.23.0...
+rem   START https://git-scm.com/download/win
+rem )
 
 echo Now run build_packages.bat

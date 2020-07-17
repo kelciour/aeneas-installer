@@ -32,8 +32,8 @@ IF NOT EXIST "%cd%\python-3.7.4.exe" (
   echo Downloading Python 3.7.4...
   %CURL% "https://www.python.org/ftp/python/3.7.4/python-3.7.4-amd64.exe" -o "%cd%\python-3.7.4.exe"
 )
-IF NOT EXIST "C:\Python37-64\python.exe" (
-  IF EXIST "%cd%\python-3.7.4.exe" (
+IF EXIST "%cd%\python-3.7.4.exe" (
+  IF NOT EXIST "C:\Python37-64\python.exe" (
     echo Installing Python 3.7.4...
     python-3.7.4.exe /quiet InstallAllUsers=1 TargetDir=C:\Python37-64 PrependPath=1
   )
@@ -43,7 +43,7 @@ IF NOT EXIST "C:\Python37-64\python.exe" (
 )
 
 C:\Python37-64\python -m ensurepip
-set pip=C:\Python37-64\Scripts\pip
+set pip=C:\Python37-64\python -m pip
 
 %pip% install -U pip setuptools wheel
 
