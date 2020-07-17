@@ -92,12 +92,15 @@ REM   "%cd%\setup_ffmpeg-4.2.exe" /SILENT
   echo START https://ffmpeg.zeranoe.com/builds/
 )
 
+set AENEAS_WITH_CEW=False
+
 %pip% install -U numpy
-%pip% install -U aeneas lxml beautifulsoup4 soupsieve
+%pip% install -U aeneas==1.7.0
+%pip% install -U lxml beautifulsoup4 soupsieve
 
 %pip% wheel pip
 %pip% wheel numpy
-%pip% wheel aeneas
+%pip% wheel aeneas==1.7.0
 
 cd %CURDIR%
 
